@@ -1,20 +1,33 @@
 package com.simpleLinkedList;
-public class MyNodeTest<T> implements INode<T> {
-        private T head;
-        private MyNodeTest next;
+public class MyNode<T> implements INode<T> {
+    private T data;
+    private INode next;
 
-    public MyNodeTest(T key) {
-            this.head = null;
-            this.next = null;
-        }
+    //constructor
+    public MyNode(T data) {
+        this.data = data;
+        this.next = null;
+    }
 
-        public MyNodeTest getNext () {
-            return next;
-        }
+    @Override
+    public T getData() {
+        return data;
+    }
 
-        public void setNext (MyNodeTest next){
-            this.next = next;
-        }
-        
+    @Override
+    public void setData(T key) {
+        this.data = key;
+    }
+
+
+    public INode getNext() {
+        return next;
+    }
+
+    @Override
+    public void setNext(INode next) {
+        this.next = next;
+    }
+
 }
 
