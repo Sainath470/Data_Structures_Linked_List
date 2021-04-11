@@ -1,10 +1,10 @@
 package com.simpleLinkedList;
-public class MyNodeTest<T> {
-        private T key;
+public class MyNodeTest<T> implements INode<T> {
+        private T head;
         private MyNodeTest next;
 
     public MyNodeTest(T key) {
-            this.key = null;
+            this.head = null;
             this.next = null;
         }
 
@@ -15,5 +15,6 @@ public class MyNodeTest<T> {
         public void setNext (MyNodeTest next){
             this.next = next;
         }
+        
 }
 
