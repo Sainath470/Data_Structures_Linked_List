@@ -97,5 +97,19 @@ class LinkedListsTest {
         linkedList.printMyNodes();
     }
 
+    @Test
+    public void Given3Numbers_WhenSearch_ParticularNumber_ResultReturned(){
+        MyNode<Integer> firstNode = new MyNode<>(56);
+        MyNode<Integer> secondNode = new MyNode<>(30);
+        MyNode<Integer> thirdNode = new MyNode<>(70);
+        MyLinkedList linkedList = new MyLinkedList();
+        linkedList.add(firstNode);
+        linkedList.append(secondNode);
+        linkedList.append(thirdNode);
+        linkedList.searchKey(30);
+        boolean result = linkedList.searchKey(30);
+        Assertions.assertTrue(result);
+    }
+
 }
 
