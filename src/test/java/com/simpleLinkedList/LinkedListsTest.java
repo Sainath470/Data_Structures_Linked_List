@@ -47,8 +47,28 @@ class LinkedListsTest {
                         myLinkedList.head.getNext().equals(mySecondNode) &&
                         myLinkedList.tail.equals(myThirdNode);
         Assert.assertTrue(result);
+    }
+
+    @Test
+    public void given3NumbersWhenOneNumberIsAddedToLinkedListTestShouldBeAddedInMiddle(){
+        MyNode<Integer> firstNode = new MyNode<>(56);
+        MyNode<Integer> secondNode = new MyNode<>(30);
+        MyNode<Integer> thirdNode = new MyNode<>(70);
+        MyLinkedList linkedList = new MyLinkedList();
+        linkedList.add(firstNode);
+        linkedList.append(thirdNode);
+        linkedList.insert(firstNode,secondNode);
+        linkedList.printMyNodes();
+        boolean result = linkedList.head.equals(firstNode) &&
+                linkedList.head.getNext().equals(secondNode) &&
+                linkedList.tail.equals(thirdNode);
+        Assertions.assertTrue(result);
+
 
     }
+
+
+
 
 }
 
