@@ -64,9 +64,23 @@ class LinkedListsTest {
                 linkedList.tail.equals(thirdNode);
         Assertions.assertTrue(result);
 
-
     }
 
+    @Test
+    public void given3NumbersWhenOneNumberInTheLinkedListTestShouldBeRemoved(){
+        MyNode<Integer> firstNode = new MyNode<>(56);
+        MyNode<Integer> secondNode = new MyNode<>(30);
+        MyNode<Integer> thirdNode = new MyNode<>(70);
+        MyLinkedList linkedList = new MyLinkedList();
+        linkedList.add(firstNode);
+        linkedList.append(thirdNode);
+        linkedList.insert(firstNode,secondNode);
+        linkedList.popLast();
+        linkedList.printMyNodes();
+        boolean result = linkedList.head.equals(secondNode) &&
+                linkedList.tail.equals(thirdNode);
+        Assertions.assertTrue(result);
+    }
 
 
 
