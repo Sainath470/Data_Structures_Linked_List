@@ -1,5 +1,4 @@
 package com.simpleLinkedList;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +12,7 @@ class LinkedListsTest {
         mySecondNode.setNext(myThirdNode);
         boolean result = myFirstNode.getNext().equals(mySecondNode) &&
                 mySecondNode.getNext().equals(myThirdNode);
-        Assert.assertTrue(result);
+        Assertions.assertTrue(result);
 
     }
 
@@ -30,7 +29,7 @@ class LinkedListsTest {
         boolean result = myLinkedList.head.equals(myThirdNode) &&
                 myLinkedList.head.getNext().equals(mySecondNode) &&
                 myLinkedList.tail.equals(myFirstNode);
-        Assert.assertTrue(result);
+        Assertions.assertTrue(result);
     }
 
     @Test
@@ -46,7 +45,7 @@ class LinkedListsTest {
         boolean result = myLinkedList.head.equals(myFirstNode) &&
                         myLinkedList.head.getNext().equals(mySecondNode) &&
                         myLinkedList.tail.equals(myThirdNode);
-        Assert.assertTrue(result);
+        Assertions.assertTrue(result);
     }
 
     @Test
@@ -67,7 +66,23 @@ class LinkedListsTest {
     }
 
     @Test
-    public void given3NumbersWhenOneNumberInTheLinkedListTestShouldBeRemoved(){
+    public void given3NumbersWhenFirstNumberInTheLinkedListTestShouldBeRemoved(){
+        MyNode<Integer> firstNode = new MyNode<>(56);
+        MyNode<Integer> secondNode = new MyNode<>(30);
+        MyNode<Integer> thirdNode = new MyNode<>(70);
+        MyLinkedList linkedList = new MyLinkedList();
+        linkedList.add(firstNode);
+        linkedList.append(thirdNode);
+        linkedList.insert(firstNode,secondNode);
+        linkedList.pop();
+        linkedList.printMyNodes();
+        boolean result = linkedList.head.equals(secondNode) &&
+                linkedList.tail.equals(thirdNode);
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void given3NumbersWhenLastNumberInTheLinkedListTestShouldBeRemoved(){
         MyNode<Integer> firstNode = new MyNode<>(56);
         MyNode<Integer> secondNode = new MyNode<>(30);
         MyNode<Integer> thirdNode = new MyNode<>(70);
@@ -76,13 +91,11 @@ class LinkedListsTest {
         linkedList.append(thirdNode);
         linkedList.insert(firstNode,secondNode);
         linkedList.popLast();
-        linkedList.printMyNodes();
-        boolean result = linkedList.head.equals(secondNode) &&
-                linkedList.tail.equals(thirdNode);
+        boolean result = linkedList.head.equals(firstNode) &&
+                linkedList.tail.equals(secondNode);
         Assertions.assertTrue(result);
+        linkedList.printMyNodes();
     }
-
-
 
 }
 
