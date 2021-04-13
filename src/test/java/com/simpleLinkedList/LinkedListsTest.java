@@ -1,6 +1,7 @@
 package com.simpleLinkedList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import java.util.List;
 
 class LinkedListsTest {
     @Test
@@ -128,6 +129,25 @@ class LinkedListsTest {
         linkedList.printMyNodes();
     }
 
+    @Test
+    public void given3NumbersWhenSearchKeyAndDeleteAndDisplaySizeOfLinkedListReturnTrue() {
+        MyNode<Integer> firstNode = new MyNode<>(56);
+        MyNode<Integer> secondNode = new MyNode<>(30);
+        MyNode<Integer> thirdNode = new MyNode<>(70);
+        MyNode<Integer> newNode = new MyNode<>(40);
+        MyLinkedList<Integer> linkedList = new MyLinkedList<>();
+        linkedList.add(firstNode);
+        linkedList.append(secondNode);
+        linkedList.append(thirdNode);
+        linkedList.searchInsert(30, newNode);
+        linkedList.searchDelete(40);
+        linkedList.printMyNodes();
 
+        System.out.println("Linked List size : " + linkedList.size());
+
+        boolean result = linkedList.head.getNext().equals(secondNode) &&
+                secondNode.getNext().equals(thirdNode);
+        Assertions.assertTrue(result);
+    }
 }
 
