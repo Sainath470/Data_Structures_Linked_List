@@ -111,5 +111,23 @@ class LinkedListsTest {
         Assertions.assertTrue(result);
     }
 
+    @Test
+    public void Given3Numbers_WhenSearch_ParticularNumber_AndInsert_ResultReturned(){
+        MyNode<Integer> firstNode = new MyNode<>(56);
+        MyNode<Integer> secondNode = new MyNode<>(30);
+        MyNode<Integer> thirdNode = new MyNode<>(70);
+        MyNode<Integer> newNode = new MyNode<>(40);
+        MyLinkedList linkedList = new MyLinkedList();
+        linkedList.add(firstNode);
+        linkedList.append(secondNode);
+        linkedList.append(thirdNode);
+        linkedList.searchInsert(30,newNode);
+        boolean result = linkedList.head.getNext().equals(secondNode) &&
+                secondNode.getNext().equals(newNode);
+        Assertions.assertTrue(result);
+        linkedList.printMyNodes();
+    }
+
+
 }
 
